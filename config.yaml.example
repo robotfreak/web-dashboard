@@ -1,0 +1,98 @@
+# KI-OS Dashboard Konfiguration — BEISPIEL
+
+# Kopiere diese Datei nach config.yaml und passe sie an!
+# cp config.yaml.example config.yaml
+
+# ===== SERVICES =====
+# Hier alle Services eintragen die im Dashboard angezeigt werden sollen
+
+services:
+  # ===== PROJECTS =====
+  - name: "Lagerverwaltung"
+    url: "https://100.78.230.126:5000"
+    icon: "inventory"
+    category: "Projects"
+    description: "Zentrale Lagerverwaltungs-App"
+    health_endpoint: "/api/health"
+    tags: ["flask", "inventory", "production"]
+    
+  - name: "Makerspace Logger"
+    url: "http://100.78.230.126:8080"
+    icon: "makerspace"
+    category: "Projects"
+    description: "RFID Machine Logger"
+    tags: ["flask", "esp32", "rfid"]
+    
+  - name: "Repair Cafe"
+    url: "http://100.78.230.126:5002"
+    icon: "spool"
+    category: "Projects"
+    description: "Repair Cafe Management"
+    tags: ["flask", "service"]
+
+  # ===== INFRASTRUCTURE =====
+  - name: "Tailscale Admin"
+    url: "https://login.tailscale.com/admin"
+    icon: "tailscale"
+    category: "Infrastructure"
+    description: "Tailscale Mesh VPN Admin"
+    tags: ["vpn", "mesh"]
+    
+  - name: "GitHub Repo"
+    url: "https://github.com/robotfreak/ki-os"
+    icon: "github"
+    category: "Infrastructure"
+    description: "KI-OS Git Repository"
+    tags: ["git", "code"]
+
+  # ===== TOOLS =====
+  - name: "Obsidian Vault"
+    url: "file:///home/pi/ki-os/vault"
+    icon: "obsidian"
+    category: "Tools"
+    description: "2nd Brain Obsidian Vault"
+    local_path: "/home/pi/ki-os/vault"
+    tags: ["obsidian", "notes"]
+    
+  - name: "Hermes CLI"
+    url: "terminal://hermes chat"
+    icon: "terminal"
+    category: "Tools"
+    description: "Hermes Agent CLI"
+    command: "hermes chat"
+    tags: ["hermes", "cli"]
+
+  # ===== MONITORING =====
+  - name: "Cockpit Web Console"
+    url: "https://100.118.51.113:9090"
+    icon: "cockpit"
+    category: "Infrastructure"
+    description: "VPS System-Administration"
+    tailscale_ip: "100.118.51.113"
+    tags: ["cockpit", "admin", "monitoring"]
+
+  - name: "Pi500 Status"
+    url: "http://100.78.230.126:9100"
+    icon: "raspberry"
+    category: "Monitoring"
+    description: "Pi500 System Metrics"
+    tags: ["monitoring", "node-exporter"]
+
+# ===== KATEGORIEN =====
+# Reihenfolge bestimmt die Anzeige im Dashboard
+
+categories:
+  - "Projects"
+  - "Infrastructure"
+  - "Tools"
+  - "Monitoring"
+
+# ===== DASHBOARD EINSTELLUNGEN =====
+
+dashboard:
+  title: "Peter's Dashboard"
+  subtitle: "Peter's Self-Hosted Services"
+  refresh_interval: 60  # Sekunden für Health Checks
+  theme: "dark"
+  show_status: true
+  show_tags: true
