@@ -1,4 +1,4 @@
-# KI-OS Dashboard
+# Web Dashboard
 
 Ein flexibles, dark-themed Dashboard für Self-Hosted Services mit Health Checks.
 
@@ -23,8 +23,8 @@ Ein flexibles, dark-themed Dashboard für Self-Hosted Services mit Health Checks
 ### **1. Repository klonen:**
 
 ```bash
-git clone https://github.com/robotfreak/ki-os-dashboard.git
-cd ki-os-dashboard
+git clone https://github.com/robotfreak/web-dashboard.git
+cd web-dashboard
 ```
 
 ### **2. Python Virtual Environment einrichten:**
@@ -160,7 +160,7 @@ WantedBy=default.target
 cd /path/to/dein/projekt
 
 # Dashboard als Submodule hinzufügen
-git submodule add https://github.com/robotfreak/ki-os-dashboard.git dashboard
+git submodule add https://github.com/robotfreak/web-dashboard.git dashboard
 
 # Ins Dashboard wechseln
 cd dashboard
@@ -264,7 +264,7 @@ ki-os-dashboard/
 ├── config.yaml.example     # Konfigurations-Vorlage
 ├── config.yaml             # Projekt-spezifische Config (nicht committen!)
 ├── requirements.txt        # Python Dependencies
-├── ki-os-dashboard.service # Systemd Service-Datei
+├── web-dashboard.service   # Systemd Service-Datei
 ├── README.md              # Diese Datei
 ├── templates/
 │   └── index.html         # HTML Template (Dark Theme)
@@ -285,6 +285,7 @@ ki-os-dashboard/
 - ✅ Auto-Refresh
 - ✅ Systemd Service
 - ✅ Submodule-fähig
+- ✅ Umbenennung zu `web-dashboard`
 
 ---
 
@@ -299,7 +300,7 @@ Fehler gefunden oder Feature-Wunsch?
 
 ## 📞 SUPPORT
 
-**GitHub Issues:** https://github.com/robotfreak/ki-os-dashboard/issues
+**GitHub Issues:** https://github.com/robotfreak/web-dashboard/issues
 
 **Dokumentation:** Siehe README.md
 
