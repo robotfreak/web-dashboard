@@ -156,6 +156,11 @@ if __name__ == '__main__':
     print("🚀 Starting KI-OS Dashboard...")
     print("📊 Loading config from", CONFIG_PATH)
     
+    # Port aus config oder Environment Variable
+    config = load_config()
+    port = int(os.environ.get('DASHBOARD_PORT', config.get('dashboard', {}).get('port', 8050)))
+    host = os.environ.get('DASHBOARD_HOST', '0.0.0.0')
+    
     # Initiale Health Checks
     health_thread = threading.Thread(target=health_check_loop, daemon=True)
     health_thread.start()
@@ -165,5 +170,5 @@ if __name__ == '__main__':
     time.sleep(3)
     
     # Start Flask Server
-    print("🌐 Dashboard running on http://0.0.0.0:8050")
-    app.run(host='0.0.0.0', port=8050, debug=False, threaded=True)
+    print(f"🌐 Dashboard running on http://{host}:{port}")
+    app.run(host=host, port=port, debug=False, threaded=True)
